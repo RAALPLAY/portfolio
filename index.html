@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Rafael Hernández | Creador de Apps Rentables</title>
+    <!-- Carga de Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #c5c6c7;
+            background-color: #0b0c10;
+        }
+
+        /* Estilo para el efecto de "glassmorphism" */
+        .glass-effect {
+            background-color: rgba(31, 40, 51, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Estilo para la nueva tarjeta de servicios con degradado */
+        .glass-gradient-card {
+            background: linear-gradient(to right, rgba(128, 0, 128, 0.2), rgba(255, 20, 147, 0.2), rgba(255, 99, 71, 0.2));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Oculta las barras de desplazamiento, pero permite el scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* === Estilos para la animación del emoji === */
+        .emoji-cycler {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        /* Definición de la animación de entrada */
+        @keyframes bounce-in {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Definición de la animación de salida */
+        @keyframes bounce-out {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(0); }
+        }
+        
+        .bounce-in {
+            animation-name: bounce-in;
+        }
+        
+        .bounce-out {
+            animation-name: bounce-out;
+        }
+
+        /* Estilos para la animación de escritura y cursor */
+        .typing-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="text-[#c5c6c7] p-4">
+    
+    <!-- Sección de Encabezado: Portada, Perfil, Nombre y Contacto -->
+    <header class="mx-auto max-w-5xl mb-12 rounded-2xl overflow-hidden shadow-2xl glass-effect">
+        <!-- Imagen de portada -->
+        <div class="w-full h-48 sm:h-64 bg-[#1f2833] flex items-center justify-center">
+            <code id="banner-code" class="text-4xl sm:text-5xl font-mono select-none"></code>
+        </div>
+        
+        <div class="relative p-6">
+            <!-- Imagen de perfil -->
+            <div class="absolute -top-16 left-6 w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-[#1f2833] shadow-lg">
+                <img src="img/CirclePhoto.png" alt="Foto de Perfil de Rafael Hernández" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="ml-36 sm:ml-44">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-[#66FCF1] mb-1">Rafael Hernández Alayón</h1>
+                <p class="text-lg sm:text-xl font-semibold text-[#45a29e] mb-4">Desarrollador de Software <span id="emoji-cycler" class="emoji-cycler"></span> | Creador de Productos Digitales Rentables</p>
+                
+                <!-- Datos de la cabeza (contacto) -->
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm sm:text-base">
+                    <!-- Icono de Correo Electrónico mejorado -->
+                    <a href="mailto:hernandez.rafael.0309@gmail.com" class="text-[#c5c6c7] hover:text-[#66FCF1] transition duration-300 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884zM18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                        <span>hernandez.rafael.0309@gmail.com</span>
+                    </a>
+                    <!-- Icono de Teléfono mejorado -->
+                    <a href="tel:+584241842237" class="text-[#c5c6c7] hover:text-[#66FCF1] transition duration-300 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.225 15.225 0 006.59 6.59l2.21-2.21a1 1 0 011.13-.25c.78.22 1.6.35 2.44.35a1 1 0 011 1v3.42a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.42a1 1 0 011 1c0 .84.13 1.66.35 2.44a1 1 0 01-.25 1.13L6.62 10.79z"></path></svg>
+                        <span>+58 424-184-2237</span>
+                    </a>
+                    <!-- Icono de LinkedIn corregido -->
+                    <a href="https://www.linkedin.com/in/rafael-developer" target="_blank" rel="noopener noreferrer" class="text-[#c5c6c7] hover:text-[#66FCF1] transition duration-300 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <!-- Icono de GitHub mejorado -->
+                    <a href="https://github.com/raalplay" target="_blank" rel="noopener noreferrer" class="text-[#c5c6c7] hover:text-[#66FCF1] transition duration-300 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.819-.26.819-.578 0-.284-.01-1.036-.015-2.03-3.338.724-4.042-1.61-4.042-1.61-.542-1.373-1.322-1.743-1.322-1.743-1.087-.745.082-.729.082-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.492.998.108-.779.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.383 1.236-3.221-.124-.3-.538-1.52.117-3.176 0 0 1.008-.322 3.3.996.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.291-1.318 3.291-.996 3.291-.996.656 1.656.241 2.876.117 3.176.77.838 1.233 1.911 1.233 3.221 0 4.609-2.808 5.626-5.475 5.922.431.373.818 1.121.818 2.251 0 1.603-.015 2.898-.015 3.291 0 .319.219.694.825.575 4.767-1.589 8.204-6.086 8.204-11.385C24 5.373 18.627 0 12 0z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="mx-auto max-w-5xl">
+        <!-- Sección de Perfil, Habilidades y Educación -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Perfil Profesional y Habilidades Blandas (ahora en una sola columna) -->
+            <div class="lg:col-span-2 p-8 rounded-2xl shadow-xl glass-effect">
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-[#66FCF1] mb-4">Perfil Profesional</h2>
+                    <p class="text-base leading-relaxed text-[#c5c6c7]">
+                        Desarrollador de Software con una sólida trayectoria en la creación, despliegue y monetización de aplicaciones. Experto en <strong>desarrollo móvil (Kotlin, Jetpack Compose)</strong>, <strong>backend (Node.js, Express.js)</strong> y <strong>arquitectura en la nube (AWS)</strong>. Creador y operador de <strong>Recargi</strong>, una aplicación rentable que demuestra mi capacidad para desarrollar soluciones sostenibles. Mi pasión por el código pulcro y la creación de productos de alto impacto se combina con una gran adaptabilidad, buscando siempre aplicar mis habilidades full-stack y mi mentalidad emprendedora en un entorno global.
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-[#66FCF1] mb-4">Habilidades Blandas</h2>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-base text-[#c5c6c7]">
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-1 text-[#66FCF1] shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Trabajo en Equipo:</strong> Colaboración y apoyo mutuo.</span></li>
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-1 text-[#66FCF1] shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Comunicación Proactiva:</strong> Comunicación clara y constante.</span></li>
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-1 text-[#66FCF1] shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Resolución de Problemas:</strong> Enfoque analítico y eficiente.</span></li>
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-1 text-[#66FCF1] shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Adaptabilidad:</strong> Ajuste a nuevas tecnologías.</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Habilidades, Idiomas y Nacionalidad -->
+            <div class="flex flex-col gap-8">
+                <!-- Habilidades Técnicas -->
+                <div class="p-8 rounded-2xl shadow-xl glass-effect">
+                    <h2 class="text-2xl font-bold text-[#66FCF1] mb-4">Habilidades</h2>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-[#c5c6c7] mb-6">
+                        <li><strong>Desarrollo Móvil:</strong> Kotlin, Jetpack Compose, Android Studio, UI/UX, Material UI 3</li>
+                        <li><strong>Desarrollo Backend:</strong> Node.js, Express.js, API RESTful, Programación Asíncrona</li>
+                        <li><strong>Cloud Computing:</strong> AWS (EC2, S3, RDS, Lambda)</li>
+                        <li><strong>Bases de Datos:</strong> SQL, Amazon RDS, MySQL</li>
+                        <li><strong>DevOps/Herramientas:</strong> Git, VS Code, CI/CD, TDD, Linux</li>
+                        <li><strong>Seguridad:</strong> IAM, AWS Secrets Manager, Verificación de Pagos</li>
+                    </ul>
+                </div>
+                <!-- Idiomas y Nacionalidad -->
+                <div class="p-8 rounded-2xl shadow-xl glass-effect">
+                    <h2 class="text-2xl font-bold text-[#66FCF1] mb-4">Idiomas & Nacionalidad</h2>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-[#c5c6c7]">
+                        <li><strong>Español:</strong> Nativo</li>
+                        <li><strong>Inglés:</strong> B2</li>
+                        <li><strong>Nacionalidad:</strong> Venezolana, Española (en trámite)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nueva Tarjeta de Servicios Destacada -->
+        <section class="mb-12">
+            <!-- Se envuelve todo el contenido de la tarjeta en el enlace -->
+            <a href="mailto:hernandez.rafael.0309@gmail.com" class="relative block p-8 rounded-2xl shadow-2xl glass-gradient-card transition-transform duration-300 hover:scale-105 group">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-[#66FCF1] mb-2">
+                            ¿Necesitas ayuda con tu app?
+                        </h3>
+                        <p class="text-lg text-[#c5c6c7]">
+                            Descubre cómo puedo ayudarte a solucionar los problemas para que tu aplicación se despliege sin inconvenientes en el entorno digital.
+                        </p>
+                    </div>
+                    <!-- El botón ahora reacciona al hover del grupo -->
+                    <div class="shrink-0 flex items-center justify-center w-14 h-14 rounded-full bg-[#c5c6c7] group-hover:bg-white transition-all duration-300 shadow-lg group-hover:scale-125">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#0b0c10" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- Sección de Proyectos Destacados (Carrusel adaptable a móviles) -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-[#66FCF1] mb-2 text-center">
+                Aplicaciones publicadas 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="inline-block w-8 h-8 ml-2 text-[#45a29e]">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </h2>
+            <p class="text-sm text-center text-[#99a2a2] mb-8">(Ordenado de más reciente a más antigua)</p>
+            
+            <div class="relative md:flex md:justify-center">
+                <div id="project-carousel" class="inline-flex flex-row snap-x snap-mandatory overflow-x-auto no-scrollbar p-2 -m-2 space-x-4 max-w-full">
+                    
+                    <!-- Tarjeta de Proyecto: Recargi -->
+                    <div class="flex-none w-80 sm:w-96 snap-center">
+                        <div class="p-6 rounded-2xl shadow-xl glass-effect flex flex-col h-full">
+                            <!-- Contenedor para el ícono y el título -->
+                            <div class="flex items-center justify-between gap-4 mb-2">
+                                <div class="flex items-center gap-4">
+                                    <img src="https://play-lh.googleusercontent.com/ZhzJ3eZng-8DEjuFpQTj-lA5dmk8QZNGV-QoM2isoM5L9hz8hwJdCgs-LiSzd3Sm-4Q=w480-h960-rw" alt="Ícono de Recargi" class="w-10 h-10 rounded-lg">
+                                    <h3 class="text-xl font-bold text-[#66FCF1]">Recargi</h3>
+                                </div>
+                                <span class="text-sm font-normal text-[#99a2a2]">2025 - 2024</span>
+                            </div>
+                            <p class="text-sm text-[#c5c6c7] mb-4">
+                                Aplicación móvil rentable para el pago de servicios de streaming, diseñada, desarrollada y operada integralmente.
+                            </p>
+                            <!-- Carrusel de imágenes para Recargi -->
+                            <div class="relative w-full aspect-[9/16] rounded-lg mb-4 overflow-hidden group/carousel">
+                                <div id="recargi-carousel" class="flex h-full transition-transform duration-500 ease-in-out">
+                                    <img src="https://play-lh.googleusercontent.com/MsY8yd6Qo4fTB9TtpN4borFHt0BxARClHK_IDI4ekdWmRJYObhVfifO9n-ZCDyLqAQ=w1052-h592-rw" alt="Captura de Recargi 1" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://play-lh.googleusercontent.com/bnr7bkYQ2hYV2WDMvhP9cSbAqrkJHWjQT0PItCV0mEA-00pFwkSDXSFJqdWUMVNd0V8=w1052-h592-rw" alt="Captura de Recargi 2" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://play-lh.googleusercontent.com/BlzWFvrD-zNRHLvwCBNOer5NHy3D0hCfEV54o5-oqO32NNnRoMRxOoXrhh3VR12LzvQ=w1052-h592-rw" alt="Captura de Recargi 3" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://play-lh.googleusercontent.com/IJmLpR-heOB2151KK_7Hmd83m5bSSMd16JKzG-h2-_vfBmIF2r44IE4wGpENG6QflA=w1052-h592-rw" alt="Captura de Recargi 4" class="w-full h-full object-cover flex-shrink-0">
+                                </div>
+                                <button id="recargi-prev" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-black/60"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                                <button id="recargi-next" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-black/60"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                            </div>
+                            <div class="space-y-2 text-[#c5c6c7] text-sm mt-auto">
+                                <p><strong>Impacto:</strong> +$10,000 en ganancias netas.</p>
+                                <p><strong>Stack:</strong> Kotlin, Jetpack Compose, Node.js, Express.js, AWS.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <a href="https://play.google.com/store/apps/details?id=com.raalplay.recargi" target="_blank" rel="noopener noreferrer" class="bg-gray-700 text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0b0c10] transition-all duration-300 font-medium py-2 px-4 rounded-lg text-xs hover:shadow-[0_0_15px_#66FCF1] transform hover:scale-105">
+                                    Ver en Google Play 
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-block ml-1"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                                </a>
+                                <a href="https://github.com/RAALPLAY/Recargi-Public" target="_blank" rel="noopener noreferrer" class="bg-gray-700 text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0b0c10] transition-all duration-300 font-medium py-2 px-4 rounded-lg text-xs hover:shadow-[0_0_15px_#66FCF1] transform hover:scale-105">GitHub <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 inline-block ml-1"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.11.819-.26.819-.578 0-.284-.01-1.036-.015-2.03-3.338.724-4.042-1.61-4.042-1.61-.542-1.373-1.322-1.743-1.322-1.743-1.087-.745.082-.729.082-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.492.998.108-.779.419-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.383 1.236-3.221-.124-.3-.538-1.52.117-3.176 0 0 1.008-.322 3.3.996.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.291-1.318 3.291-.996 3.291-.996.656 1.656.241 2.876.117 3.176.77.838 1.233 1.911 1.233 3.221 0 4.609-2.808 5.626-5.475 5.922.431.373.818 1.121.818 2.251 0 1.603-.015 2.898-.015 3.291 0 .319.219.694.825.575 4.767-1.589 8.204-6.086 8.204-11.385C24 5.373 18.627 0 12 0z"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna para proyectos de escritorio -->
+                    <div class="flex-none w-80 sm:w-96 snap-center flex flex-col space-y-4">
+                        <!-- Tarjeta de Proyecto: NO-USB -->
+                        <div class="p-6 rounded-2xl shadow-xl glass-effect flex flex-col">
+                            <div class="flex items-center justify-between gap-4 mb-2">
+                                 <div class="flex items-center gap-4">
+                                    <img src="https://play-lh.googleusercontent.com/30hfvmytqDZ19WUf2TTB8jVKhXQk2-nHCRxi7yYn1PLrDWhJonhgLZ64vQvhqwyPI74=w480-h960-rw" alt="Ícono de NO-USB" class="w-10 h-10 rounded-lg">
+                                    <h3 class="text-xl font-bold text-[#66FCF1]">NO-USB</h3>
+                                </div>
+                                <span class="text-sm font-normal text-[#99a2a2]">2024-2017</span>
+                            </div>
+                            <p class="text-sm text-[#c5c6c7] mb-4">
+                                Solución multiplataforma para la transferencia inalámbrica de archivos, desarrollada como tesis de bachillerato.
+                            </p>
+                            <!-- Carrusel de imágenes para NO-USB -->
+                            <div class="relative w-full aspect-video rounded-lg mb-4 overflow-hidden group/carousel">
+                                <div id="nousb-carousel" class="flex h-full transition-transform duration-500 ease-in-out">
+                                    <img src="https://play-lh.googleusercontent.com/1I4vYXf2xrx5Rj7Godu1V5_0p6mnIy3tugAXU60uPBmB0Ls5sXz8jBasDbSLx1SzgZI=w1052-h592-rw" alt="Captura de NO-USB 1" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://play-lh.googleusercontent.com/UdWORMbL7QGdPdYoeV2NwMB_yvp2IkIj_cYQIk5_XiKJw8SnuO9lmhm6IkOmlxmBzKQ=w1052-h592-rw" alt="Captura de NO-USB 2" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://play-lh.googleusercontent.com/sjk1c8FhoHPelNhTw7L99fX8l-MR2v5vowvXjo3EyVstsgXp-Gki9UdNFBprIzS1Zdg=w1052-h592-rw" alt="Captura de NO-USB 3" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://play-lh.googleusercontent.com/a52oxSQl03uxP_ftHGM7BJJyT7b6u-uyP4t1Ba96kS3e7pHAkLgpgcL4HJsi_QZFGrU=w1052-h592-rw" alt="Captura de NO-USB 4" class="w-full h-full object-cover flex-shrink-0">
+                                </div>
+                                <button id="nousb-prev" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-black/60"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                                <button id="nousb-next" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-black/60"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                            </div>
+                            <div class="space-y-2 text-[#c5c6c7] text-sm mt-auto">
+                                <p><strong>Logros:</strong> +10,000 instalaciones.</p>
+                                <p><strong>Stack:</strong> Java, C#, Node.js, AWS.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <a href="https://raalplay.github.io/no-usb" target="_blank" rel="noopener noreferrer" class="bg-gray-700 text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0b0c10] transition-all duration-300 font-medium py-2 px-4 rounded-lg text-xs hover:shadow-[0_0_15px_#66FCF1] transform hover:scale-105">Ver más <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-block ml-1"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta de Proyecto: RAM Optimizer -->
+                        <div class="p-6 rounded-2xl shadow-xl glass-effect flex flex-col">
+                            <div class="flex items-center justify-between gap-4 mb-2">
+                                 <div class="flex items-center gap-4">
+                                    <img src="https://raw.githubusercontent.com/RAALPLAY/RAM-Optimizer/refs/heads/main/img/icon.png" alt="Ícono de RAM Optimizer" class="w-10 h-10 rounded-lg">
+                                    <h3 class="text-xl font-bold text-[#66FCF1]">RAM Optimizer</h3>
+                                </div>
+                                <span class="text-sm font-normal text-[#99a2a2]">2022</span>
+                            </div>
+                            <p class="text-sm text-[#c5c6c7] mb-4">
+                                Herramienta de optimización de memoria RAM con interfaz gráfica, creada para mi canal de YouTube.
+                            </p>
+                            <!-- Carrusel de imágenes para RAM Optimizer -->
+                            <div class="relative w-full aspect-video rounded-lg mb-4 overflow-hidden group/carousel">
+                                <div id="ramoptimizer-carousel" class="flex h-full transition-transform duration-500 ease-in-out">
+                                    <img src="https://raw.githubusercontent.com/RAALPLAY/RAM-Optimizer/refs/heads/main/screenshots/Screenshot%202025-10-22%20163029.png" alt="Captura de RAM Optimizer 1" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://raw.githubusercontent.com/RAALPLAY/RAM-Optimizer/refs/heads/main/screenshots/Screenshot%202025-10-22%20163058.png" alt="Captura de RAM Optimizer 2" class="w-full h-full object-cover flex-shrink-0">
+                                    <img src="https://raw.githubusercontent.com/RAALPLAY/RAM-Optimizer/refs/heads/main/screenshots/Screenshot%202025-10-22%20163059.png" alt="Captura de RAM Optimizer 3" class="w-full h-full object-cover flex-shrink-0">
+                                </div>
+                                <button id="ramoptimizer-prev" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-black/60"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                                <button id="ramoptimizer-next" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-black/60"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                            </div>
+                            <div class="space-y-2 text-[#c5c6c7] text-sm mt-auto">
+                                <p><strong>Contribución:</strong> GUI para EmptyStandbyList.</p>
+                                <p><strong>Stack:</strong> C#.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <a href="https://raalplay.github.io/RAM-Optimizer" target="_blank" rel="noopener noreferrer" class="bg-gray-700 text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0b0c10] transition-all duration-300 font-medium py-2 px-4 rounded-lg text-xs hover:shadow-[0_0_15px_#66FCF1] transform hover:scale-105">Ver más <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-block ml-1"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="text-center mt-12 p-6 rounded-2xl shadow-xl text-[#c5c6c7] glass-effect mx-auto max-w-5xl">
+        <p class="mb-4 text-base">
+            Apasionado por construir soluciones tecnológicas que generen impacto real.
+        </p>
+        <div class="flex justify-center gap-6 text-lg">
+            <a href="https://www.linkedin.com/in/rafael-developer" target="_blank" rel="noopener noreferrer" class="text-[#66FCF1] hover:text-[#45a29e] transition duration-300">LinkedIn</a>
+            <span class="text-[#c5c6c7]">|</span>
+            <a href="https://github.com/raalplay" target="_blank" rel="noopener noreferrer" class="text-[#66FCF1] hover:text-[#45a29e] transition duration-300">GitHub</a>
+        </div>
+        <p class="mt-4 text-sm text-[#c5c6c7]">&copy; 2025 Rafael Hernández Alayón. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Lógica del "Emoji Cycler"
+        document.addEventListener('DOMContentLoaded', () => {
+            const emojiSpan = document.getElementById('emoji-cycler');
+            const emojis = ['✨', '💻', '🚀', '💡'];
+            let currentEmojiIndex = 0;
+
+            function updateEmoji() {
+                if (emojiSpan) {
+                    // Primero, aplica la animación de salida
+                    emojiSpan.classList.add('bounce-out');
+                    
+                    // Espera a que la animación de salida termine para cambiar el emoji
+                    setTimeout(() => {
+                        emojiSpan.textContent = emojis[currentEmojiIndex];
+                        currentEmojiIndex = (currentEmojiIndex + 1) % emojis.length;
+
+                        // Remueve la clase de salida y aplica la de entrada para el nuevo emoji
+                        emojiSpan.classList.remove('bounce-out');
+                        emojiSpan.classList.add('bounce-in');
+                        
+                        // Remueve la clase de entrada después de que termine la animación
+                        setTimeout(() => {
+                            emojiSpan.classList.remove('bounce-in');
+                        }, 500); // Duración de la animación de entrada
+                    }, 500); // Duración de la animación de salida
+                }
+            }
+
+            // Inicia el ciclo inmediatamente
+            updateEmoji();
+            
+            // Repite el ciclo cada 2 segundos, incluyendo el tiempo de las animaciones
+            setInterval(updateEmoji, 2000);
+        });
+
+        // Lógica para los carruseles de proyectos
+        document.addEventListener('DOMContentLoaded', () => {
+            /**
+             * Inicializa un carrusel de imágenes con navegación y auto-deslizamiento.
+             * @param {string} carouselId - El ID del contenedor de imágenes del carrusel.
+             * @param {string} prevId - El ID del botón "anterior".
+             * @param {string} nextId - El ID del botón "siguiente".
+             */
+            function setupCarousel(carouselId, prevId, nextId) {
+                const carousel = document.getElementById(carouselId);
+                const prevButton = document.getElementById(prevId);
+                const nextButton = document.getElementById(nextId);
+
+                if (!carousel || !prevButton || !nextButton) return;
+
+                const totalImages = carousel.children.length;
+                let currentIndex = 0;
+                let autoSlideInterval = null;
+
+                const updateCarousel = () => carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                const nextImage = () => {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    updateCarousel();
+                };
+                const prevImage = () => {
+                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                    updateCarousel();
+                };
+                const startAutoSlide = () => autoSlideInterval = setInterval(nextImage, 4000);
+                const resetAutoSlide = () => {
+                    clearInterval(autoSlideInterval);
+                    startAutoSlide();
+                }
+
+                nextButton.addEventListener('click', () => { nextImage(); resetAutoSlide(); });
+                prevButton.addEventListener('click', () => { prevImage(); resetAutoSlide(); });
+
+                startAutoSlide();
+            }
+
+            // Inicializar todos los carruseles
+            setupCarousel('recargi-carousel', 'recargi-prev', 'recargi-next');
+            setupCarousel('nousb-carousel', 'nousb-prev', 'nousb-next');
+            setupCarousel('ramoptimizer-carousel', 'ramoptimizer-prev', 'ramoptimizer-next');
+        });
+
+        // Lógica para la animación de escritura del banner
+        document.addEventListener('DOMContentLoaded', () => {
+            const codeElement = document.getElementById('banner-code');
+            if (!codeElement) return;
+
+            // Añadir el cursor desde el inicio para que sea visible durante la escritura
+            codeElement.classList.add('typing-cursor');
+
+            const parts = [
+                // { text, class, typingSpeed, delayAfter }
+                { text: '<', class: 'text-gray-500', typingSpeed: 150, delayAfter: 700 },
+                { text: 'welcome', class: 'text-[#45a29e]', typingSpeed: 100, delayAfter: 500 },
+                { text: '/', class: 'text-gray-500', typingSpeed: 150, delayAfter: 100 },
+                { text: '>', class: 'text-gray-500', typingSpeed: 250, delayAfter: 0 }
+            ];
+ 
+            let partIndex = 0;
+            let charIndex = 0;
+            let currentSpan = null;
+
+            function type() {
+                if (partIndex < parts.length) {
+                    const currentPart = parts[partIndex];
+
+                    if (charIndex === 0) {
+                        // Crear un nuevo span para la parte actual
+                        currentSpan = document.createElement('span');
+                        currentSpan.className = currentPart.class;
+                        codeElement.appendChild(currentSpan);
+                    }
+
+                    // Añadir el siguiente caracter
+                    currentSpan.textContent += currentPart.text[charIndex];
+                    charIndex++;
+
+                    if (charIndex === currentPart.text.length) {
+                        // Pasar a la siguiente parte
+                        partIndex++;
+                        charIndex = 0;
+                        // Aplicar la pausa después de terminar la parte
+                        setTimeout(type, currentPart.delayAfter);
+                        return; // Salir para esperar la pausa
+                    }
+                    setTimeout(type, currentPart.typingSpeed); // Usar la velocidad de escritura de la parte
+                }
+            }
+ 
+            // Iniciar la animación después de una breve pausa inicial
+            setTimeout(type, 1000);
+        });
+    </script>
+
+</body>
+</html>
